@@ -1,0 +1,3 @@
+## Sistema de Cine por Terminal
+
+Sistema de venta de boletos para un cine, desarrollado en Java y ejecutado completamente en la terminal. El programa muestra la cartelera del día, permite elegir asientos y comprar boletos, y ofrece al personal del cine las herramientas para mantener actualizadas las películas y sus funciones. Toda la información se guarda en archivos, por lo que se conserva al cerrar el programa y puede usarse desde varias terminales al mismo tiempo sin que se generen conflictos.
