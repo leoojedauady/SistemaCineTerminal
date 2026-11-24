@@ -12,7 +12,6 @@ import java.math.BigDecimal;
 import java.nio.channels.FileChannel;
 import java.nio.channels.FileLock;
 import java.nio.channels.OverlappingFileLockException;
-import java.nio.file.Files;
 import java.nio.file.Path;
 import java.time.Clock;
 import java.time.LocalDateTime;
@@ -28,7 +27,10 @@ import java.util.stream.Collectors;
 import static java.nio.file.StandardOpenOption.CREATE;
 import static java.nio.file.StandardOpenOption.WRITE;
 
-/** Adaptador CSV de uso exclusivo. Las operaciones sincronizadas comparten un bloqueo de directorio. */
+/**
+ * Adaptador CSV de uso exclusivo. Las operaciones sincronizadas comparten un
+ * bloqueo de directorio.
+ */
 public final class AlmacenCsv implements RepositorioCatalogo, RepositorioCompras,
         RepositorioTrabajadores, AutoCloseable {
     private static final String PELICULAS = "id,titulo,duracion,clasificacion,activa";
@@ -41,7 +43,9 @@ public final class AlmacenCsv implements RepositorioCatalogo, RepositorioCompras
     private final FileLock bloqueo;
 
     /**
-     * Abre los datos y adquiere exclusividad hasta que termina la sesión de consola.
+     * Abre los datos y adquiere exclusividad hasta que termina la sesión de
+     * consola.
+     * 
      * @param carpeta directorio existente con los archivos CSV
      * @throws IOException si faltan los datos o el directorio está en uso
      */
@@ -64,8 +68,9 @@ public final class AlmacenCsv implements RepositorioCatalogo, RepositorioCompras
 
     /**
      * Inicializa archivos de demostración en un directorio de preparación vacío.
-     * @param carpeta directorio temporal de preparación
-     * @param inicio hora de la función inicial
+     * 
+     * @param carpeta    directorio temporal de preparación
+     * @param inicio     hora de la función inicial
      * @param trabajador credencial de muestra
      * @throws IOException si no se pueden escribir los archivos
      */
@@ -150,6 +155,7 @@ public final class AlmacenCsv implements RepositorioCatalogo, RepositorioCompras
 
     /**
      * Libera el directorio para otra instancia.
+     * 
      * @throws IOException si no se puede cerrar el archivo de bloqueo
      */
     @Override
